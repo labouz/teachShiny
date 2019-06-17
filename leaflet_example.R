@@ -21,7 +21,6 @@ map <-leaflet() %>%
   addLegend(colors = theColor,
             labels = "Florida", 
             position = "bottomleft", 
-            title = "This is a Legend",
-            labFormat = labelFormat(suffix = "%")) 
+            title = "This is a Legend") 
 
 map
