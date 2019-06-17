@@ -35,7 +35,7 @@ ui <- fluidPage(
          
          br(),
          br(),
-         p("Learn more about Old Faithful", 
+         h1("Learn more about Old Faithful", 
            a("here", href = "https://en.wikipedia.org/wiki/Old_Faithful"), "!")
          
       ),

@@ -29,10 +29,10 @@ ui <- fluidPage(
          
          
          br(),
-         br()
+         br(),
          
          ####>>>>ADD A LINK TO WIKI ABOUT OF HERE! <<<<<<<
-
+         h4(learn about old faithful)
          
       ),
       
@@ -61,7 +61,7 @@ server <- function(input, output) {
    })
    
    #####>>>>ADD SCATTER PLOT OF ERUOPTION VS WAITING HERE <<<<<<
-   
+
 }
 
 # Run the application 

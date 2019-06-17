@@ -19,41 +19,39 @@ ui <- fluidPage(
     # Application title
     titlePanel("BST 692 - Learning Shiny!"),
 
-    # Sidebar with a slider input for number of bins 
+    #MAKE THE WIDTHS OF THE NAVLIST PANEL 2 AND THE REST OF THE PAGE 10 - widths = .... 
     navlistPanel(widths = c(2,10),
-        "Analyses",
-        tabPanel("Motor Trend",
+        "WHAT'S MY NAME?",
+        tabPanel("NAME OF FIRST TAB",
                  sidebarLayout(
                      sidebarPanel(
-                         radioButtons("fgears",
-                                      "Select the number of forward gears: ",
-                                      choices = c("3" = 3,
-                                                  "4" = 4,
-                                                  "5" = 5)),
+                         #>>>>>INSERT YOUR INPUT WIDGET FOR FGEARS HERE!<<<<
+                         
+                         
+                         ,
                          
                          br(),
                          
-                         #add selection for number of cylinders
+                         #>>>>>INSERT YOUR CHECKBOXINPUT WIDGET FOR NUM CYLINDERS HEERE!<<<<<
                          
-                         checkboxGroupInput("cyl",
-                                            "Select the number of cylinders:",
-                                            choices = c("4" = 4,
-                                                        "6" = 6,
-                                                        "8" = 8),
-                                            selected = c(4,6,8)
-                         ),
+                         ,
                          
-                         #add button to show table of cars
-                         actionButton("showCars", "Display Cars!")
+                         #>>>>>>ADD THE ACTION BUTTON HERE!!!<<<<<
+                         
+                         
                          
                      ),
                      
                      # Show a plot of the generated distribution
                      mainPanel(
                          
-                         plotlyOutput("mpgVshp"),
+                         #>>>>>ADD YOUR PLOTLYOUPUT HERE!<<<<<
+                         ,
+                         
                          br(),
-                         DT::dataTableOutput("cars"), tags$hr()
+                         
+                         #>>>>>>ADD YOUR DATATABLEOUPUT HERE!!<<<<<
+                         
                          
                          
                          
@@ -61,17 +59,16 @@ ui <- fluidPage(
                  )#end sidebarlayout
         ),#end motortrend tabPanel
         tabPanel(
-            "Mapping",
+            "NAME OF SECOND TAB",
             sidebarLayout(
                 sidebarPanel(
-                    h5("This map provides the percentage of people with no means
-                       of transportation by vehicle")
+                    h5("DESCRIBE THE MAP")
                     
                 ), #end sidebar panel
                 mainPanel(
                     #leaflet output
                     fluidRow(
-                        h4("The Map"),
+                        h3("GIVE YOUR MAP A TITLE!"),
                         
                         ####>>>>ADD YOUR LEAFLETOUTPUT() HERE!<<<<<
                         
@@ -120,29 +117,9 @@ server <- function(input, output) {
     
     #leaflet map
     output$vehicleMap <- renderLeaflet({
-        popup <- paste0("County: ", vehicle_merged$NAMELSAD, "<br>", 
-                        "Percent with no vehicle: ", round(vehicle_merged$percent,2))
         
-        pal <- colorNumeric(
-            palette = "YlGnBu",
-            domain = vehicle_merged$percent
-        )
+        #>>>>>>>PLOP YOUR LEAFLET MAP CODE HERE!!!!<<<<<<<<
         
-        map <-leaflet() %>%
-            addProviderTiles("CartoDB.Positron") %>%
-            addPolygons(data = vehicle_merged, 
-                        fillColor = ~pal(percent), 
-                        color = "#b2aeae", # outline color - you need to use hex colors
-                        fillOpacity = 0.7, 
-                        weight = 1, 
-                        smoothFactor = 0.2,
-                        popup = popup) %>%
-            addLegend(pal = pal, 
-                      values = vehicle_merged$percent, 
-                      position = "bottomright", 
-                      title = "Percent with no vehicle",
-                      labFormat = labelFormat(suffix = "%")) 
-        map
     })
     
 }
