@@ -39,7 +39,8 @@ ui <- fluidPage(
             
            plotOutput("mpgVshp"),
            br(),
-           DT::dataTableOutput("cars", width = 500), tags$hr()
+           DT::dataTableOutput("cars", width = 500), 
+           tags$hr() #adds horizontal line
            
           
            
@@ -67,8 +68,6 @@ server <- function(input, output) {
             ggplot(data = x, aes(x = mpg, y = hp)) +
                 geom_line(aes(linetype = am, colour = am)) +
                 labs(x = "Miles/Gallon (MPG)", y = "Horsepower (HP)")+
-                # scale_linetype(name = "Transmission", 
-                #                     labels = c("Automatic", "Manual")) +
                 theme_minimal() 
         }else{
 

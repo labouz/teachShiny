@@ -22,9 +22,6 @@ ui <- fluidPage(
             #>>>add input of choice for number of forward gears!<<<
             
             
-            br()
-            
-            #>>>>>>add a manual vs automatic check box!<<<<<
             
          
         ),
@@ -49,18 +46,11 @@ server <- function(input, output) {
             filter(gear == input$fgears) %>%
             mutate(am = as.character(am))
         
-        if(input$trans){
-            #>>>> draw the scatterplot with the relationship between mpg and hp by 
-            #transmission type<<<<<<
-            
-            
-            
-        }else{
+        
         ###>>>> draw the scatterplot with the relationship between mpg and hp!<<<
         
             
             
-        }
     })
     
     

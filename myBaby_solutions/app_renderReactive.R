@@ -27,7 +27,7 @@ ui <- fluidPage(
             
             br(),
             #add a manual vs automatic button
-            checkboxInput("trans", "Group by Transmission"),
+            checkboxInput("trans", "Group by Transmission")
          
         ),
 
@@ -44,19 +44,18 @@ ui <- fluidPage(
 server <- function(input, output) {
 
     output$mpgVshp <- renderPlot({
-        # generate plot based on number of gears selected  
+        # generate data based on number of gears selected  
         x  <- analysis %>% 
             filter(gear == input$fgears) %>%
             mutate(am = as.character(am))
-        
+    
+        #depending on if the check box is selected 
         if(input$trans){
             # draw the scatterplot with the relationship between mpg and hp by 
             #transmission type
             ggplot(data = x, aes(x = mpg, y = hp)) +
                 geom_line(aes(linetype = am, colour = am)) +
                 labs(x = "Miles/Gallon (MPG)", y = "Horsepower (HP)")+
-                # scale_linetype(name = "Transmission", 
-                #                     labels = c("Automatic", "Manual")) +
                 theme_minimal() 
         }else{
 
