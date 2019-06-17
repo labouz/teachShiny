@@ -1,0 +1,36 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+Row {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart 1
+
+```{r}
+
+```
+
+Row {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart 2
+
+```{r}
+
+```
+
+### Chart 3
+
+```{r}
+
+```
+
