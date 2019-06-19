@@ -10,7 +10,8 @@ ui <- fluidPage(
   navlistPanel(
     "Header",
     tabPanel("First",
-             h3("This is the first panel")
+             h3("This is the first panel"),
+             p("Hi my name is Layla!")
     ),
     tabPanel("Second",
              h3("This is the second panel")
