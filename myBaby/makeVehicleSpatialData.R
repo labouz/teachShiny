@@ -8,7 +8,7 @@ library(tigris)
 #lets get the spatial data
 #fl_counties <- counties(state = "FL")
 #saveRDS(fl_counties, "./babyApp2/data/fl_counties.rds")
-fl_counties <- readRDS("./babyApp2/data/fl_counties.rds")
+fl_counties <- readRDS("./myBaby/data/fl_counties.rds")
 
 #get the census data
 geo <- geo.make(state = "FL", county = "*")
