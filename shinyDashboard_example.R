@@ -27,7 +27,7 @@ ui <- dashboardPage(
       
       # Second tab content
       tabItem(tabName = "terd",
-              p("Yo mama so fat....")
+              p("hi me")
       )
     )
   )#end dashboardBody
