@@ -5,7 +5,8 @@ library(tigris)
 
 
 #geospatial data
-fl_state <- states() %>% filter_state(state = "Florida")
+fl_state <- counties(state = 12) %>% 
+  filter(COUNTYFP %in% c("086","011"))
 
 theColor <- c("#ed9128")
 
