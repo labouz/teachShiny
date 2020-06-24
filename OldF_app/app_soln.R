@@ -10,6 +10,7 @@
 library(shiny)
 library(tidyverse)
 library(leaflet)
+library(plotly)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -56,7 +57,7 @@ ui <- fluidPage(
          plotOutput("distPlot"),
          br(),
          br(),
-         plotOutput("scatter"),
+         plotlyOutput("scatter"),
          br(),
          leafletOutput("of_map", width = "1000px")
       )
@@ -90,7 +91,7 @@ server <- function(input, output) {
    
    #scatter plot of erutions vs waiting
    
-   output$scatter <- renderPlot({
+   output$scatter <- renderPlotly({
      g <- ggplot(data = of_dat(), aes(x = eruptions, y = waiting))
      
      g + geom_point() +
@@ -105,12 +106,13 @@ server <- function(input, output) {
       theModel()
    })
    
+   
    ###### ADD MAP of OF#######
    output$of_map <- renderLeaflet({
       
       leaflet() %>% 
          addProviderTiles("CartoDB.Positron")%>% 
-         addMarkers(lat = -110.828052, lng = 44.460617)
+         addMarkers(lng = -110.828052, lat = 44.460617)
    })
    
 }
